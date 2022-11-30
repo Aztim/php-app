@@ -1,3 +1,5 @@
+<?php require_once "includes/functions.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,12 +22,16 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
     <div class="container">
-      <h2 class="text-center">Global Private LTD</h2>
+      <h2 class="text-center headh2">Global Private LTD</h2>
       <table class="table table-hover table-bordered">
+
+        <?php addRecord(); ?>
+
         <thead>
           <tr class="table-primary">
             <td>id</td>
@@ -40,12 +46,48 @@
 
         <tbody>
           <tr>
-            <td></td>
+            <td>1</td>
+            <td>Aztim</td>
+            <td>tim201182@gmail.com</td>
+            <td>www.aztim.com</td>
+            <td>123456789</td>
+            <td><a href=""  class="btn btn-primary">Edit</a></td>
+            <td><a href=""  class="btn btn-danger">Delete</a></td>
           </tr>
         </tbody>
       </table>
     </div>
 
+    <div class="container">
+      <form action="index.php" method="post">
+        <div class="form-group">
+          <label for="namefield">Name:</label>
+          <input type="text" name="name" value="" id="nameField" class="form-control">
+        </div></br>
+
+        <div class="form-group">
+          <label for="namefield">Email:</label>
+          <input type="text" name="email" value="" id="nameField" class="form-control">
+        </div></br>
+
+        <div class="form-group">
+          <label for="namefield">Website:</label>
+          <input type="text" name="website" value="" id="nameField" class="form-control">
+        </div></br>
+
+        <div class="form-group">
+          <label for="namefield">Phone:</label>
+          <input type="number" name="phoneno" value="" id="nameField" class="form-control">
+        </div></br>
+
+        <div class="form-group">
+          <input type="submit" name="add" value="Add Record" class="btn btn-success">
+          <input type="submit" name="update" value="Update Record" class="btn btn-warning">
+          <input type="hidden" name="id" value="<?php echo $id; ?>">
+        </div></br>
+
+      </form>
+    </div>
 
     <!-- MDB -->
     <script
