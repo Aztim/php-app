@@ -33,4 +33,47 @@ function addRecord(){
 }
 
 
+function showData(){
+  global $conn;
+
+  $query = "SELECT * FROM users ORDER BY id ASC";
+  $run = mysqli_query($conn, $query);
+
+  while($row = mysqli_fetch_assoc( $run )) {
+    $id = $row['id'];
+    $name = $row['name'];
+    $email = $row['email'];
+    $website = $row['website'];
+    $phoneno = $row['phoneno'];
+
+    echo "<tr>";
+    echo "<td>{$id}</td>";
+    echo "<td>{$name}</td>";
+    echo "<td>{$email}</td>";
+    echo "<td>{$website}</td>";
+    echo "<td>{$phoneno}</td>";
+    echo "<td><a href='index.php?edit={$id}' class='btn btn-primary'> Edit</a></td>";
+    echo "<td><a href='index.php?delete={$id}' class='btn btn-danger'> Edit</a></td>";
+
+    echo "</tr>";
+  }
+
+}
+
+//Edit Button's Click Event
+
+if(isset($_GET['edit'])) {
+  $id = $_GET['edit'];
+
+  $query = "SELECT * FROM users WHERE id = $id";
+  $run = mysqli_query( $conn, $query );
+
+  while($row = mysqli_fetch_assoc( $run )){
+    $name = $row['name'];
+    $email = $row['email'];
+    $website = $row['website'];
+    $phoneno = $row['phoneno'];
+  }
+}
+
 ?>

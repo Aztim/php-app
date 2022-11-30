@@ -45,15 +45,9 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Aztim</td>
-            <td>tim201182@gmail.com</td>
-            <td>www.aztim.com</td>
-            <td>123456789</td>
-            <td><a href=""  class="btn btn-primary">Edit</a></td>
-            <td><a href=""  class="btn btn-danger">Delete</a></td>
-          </tr>
+
+          <?php showData(); ?>
+
         </tbody>
       </table>
     </div>
@@ -61,23 +55,23 @@
     <div class="container">
       <form action="index.php" method="post">
         <div class="form-group">
-          <label for="namefield">Name:</label>
-          <input type="text" name="name" value="" id="nameField" class="form-control">
+          <label for="nameField">Name:</label>
+          <input type="text" name="name" value="<?php echo $name ?>" id="nameField" class="form-control">
         </div></br>
 
         <div class="form-group">
-          <label for="namefield">Email:</label>
-          <input type="text" name="email" value="" id="nameField" class="form-control">
+          <label for="nameField">Email:</label>
+          <input type="text" name="email" value="<?php echo $email ?>" id="nameField" class="form-control">
         </div></br>
 
         <div class="form-group">
-          <label for="namefield">Website:</label>
-          <input type="text" name="website" value="" id="nameField" class="form-control">
+          <label for="nameField">Website:</label>
+          <input type="text" name="website" value="<?php echo $website ?>" id="nameField" class="form-control">
         </div></br>
 
         <div class="form-group">
-          <label for="namefield">Phone:</label>
-          <input type="number" name="phoneno" value="" id="nameField" class="form-control">
+          <label for="nameField">Phone:</label>
+          <input type="number" name="phoneno" value="<?php echo $phoneno ?>" id="nameField" class="form-control">
         </div></br>
 
         <div class="form-group">
