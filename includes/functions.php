@@ -102,4 +102,13 @@ if(isset($_POST['update'])){
   }
 }
 
+if(isset($_GET['delete'])){
+  $id = $_GET['delete'];
+  $query = "DELETE FROM users WHERE id = $id";
+  $run = mysqli_query($conn, $query);
+
+  echo "<div class='alert alert-success' role='alert'>Record has been deleted</div>";
+  header('Refresh:5', 'url:index.php');
+}
+
 ?>
