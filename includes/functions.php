@@ -53,7 +53,7 @@ function showData(){
     echo "<td>{$website}</td>";
     echo "<td>{$phoneno}</td>";
     echo "<td><a href='index.php?edit={$id}' class='btn btn-primary'> Edit</a></td>";
-    echo "<td><a href='index.php?delete={$id}' class='btn btn-danger'> Edit</a></td>";
+    echo "<td><a href='index.php?delete={$id}' class='btn btn-danger'>Delete</a></td>";
 
     echo "</tr>";
   }
@@ -73,6 +73,32 @@ if(isset($_GET['edit'])) {
     $email = $row['email'];
     $website = $row['website'];
     $phoneno = $row['phoneno'];
+  }
+}
+
+if(isset($_POST['update'])){
+
+  $id = $_POST['id'];
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $website = $_POST['website'];
+  $phoneno = $_POST['phoneno'];
+
+  $query = "UPDATE users SET
+  name = '{$name}',
+  email = '{$email}',
+  website = '{$website}',
+  phoneno = '{$phoneno}'
+  WHERE id = $id";
+
+  $run = mysqli_query($conn, $query);
+
+  if($run == TRUE){
+    echo "<div class='alert alert-success' role='alert'>Record Has been updated</div>";
+    header('Refresh:5', 'url:index.php');
+  } else {
+    echo "<div class='alert alert-danger' role='alert'>Something went wrong, Please try again </div>";
+    header('Refresh:5', 'url:index.php');
   }
 }
 
